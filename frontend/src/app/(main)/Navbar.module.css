@@ -1,0 +1,32 @@
+.Navbar1{
+    color: green;
+    float: left;
+    font-family: Roboto;
+    font-size: 40px;
+    
+}
+.Navbar2{
+    color:whitesmoke;
+    font-family: Roboto;
+    padding-right:10vw ;
+    font-size: 40px;
+}
+.btn1{
+    color:white;
+    margin-left:5vw;
+    font-family: Roboto;
+    border-radius: 22px;
+    background-color: green;
+    border: 2px solid white;
+    height: 35px;
+    width: 10vw;
+}
+.btn2{
+    color:white;
+    margin-left:1vw;
+    font-family: Roboto;
+    border-radius: 22px;
+    border: 2px solid white;
+    height: 35px;
+    width: 10vw;
+}

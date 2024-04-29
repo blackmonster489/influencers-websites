@@ -1,0 +1,76 @@
+.block{
+    background-color: rgba(0, 0, 0, 0.268);
+}
+.image{
+    background-image: url(https://i0.wp.com/picjumbo.com/wp-content/uploads/black-glass-3d-elements-as-abstract-product-background-free-photo.jpeg?w=2210&quality=70);
+}
+.background{
+    background-color: rgba(0, 0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+    
+}
+.background h1{
+    color: aliceblue;
+    font-size: 55px;
+    font-family: Roboto;
+    padding-left: 70px;
+    padding-top: 90px;
+    
+}
+.background p{
+    color: aliceblue;
+    font-family: Roboto;
+    font-size: 20px;
+    padding-left: 70px;
+    padding-top: 20px;
+}
+.btn{
+    border: 3px solid green;
+    border-radius: 22px 50px;
+    margin-left: 70px;
+    margin-top: 80px;
+    color:antiquewhite;
+    height: 50px;
+    width: 8vw;
+
+}
+.text{
+    color: green;
+}
+.text2{
+    color: green;
+}
+.images{
+    height: 30vh;
+    width: 35vw;
+    margin-right: 20rem;
+
+}
+
+.img1{
+    margin-top:8px;
+    border-radius: 50%;
+    padding-right:80px;
+}
+.img2{
+    border-radius: 50%;
+    padding-right: 80px;
+    margin-left: 200px;
+
+}
+.img3{
+    margin-right: 80px;
+    border-radius: 50%;
+    padding-right: 80px;
+}
+
+
+
+    
+
+
+.content{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.816);
+}
