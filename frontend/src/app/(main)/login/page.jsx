@@ -21,6 +21,26 @@ const Login = () => {
     },
     onSubmit: (values) => {
       console.log(values);
+
+      fetch('http://localhost:5001/user/add', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+       }
+      })
+      .then((response) => {
+        console.log(response.status);
+        if(response.status === 200){
+          toast.success('user Registered Succesfully');
+        }
+        else{
+          toast.error('user Registration failed');
+        }
+      }).catch((err) =>{
+          console.log(err);
+      });
+
     },
     validationSchema:
       loginValidationSchema

@@ -24,27 +24,27 @@ const Signup = () => {
       password: '',
       confirmPassword: ''
     },
-    onSubmit: (values, { resetForm }) => {
+    onSignUp: (values, { resetForm }) => {
       console.log(values);
       
-      //fetch('http://localhost:5000/user/add', {
-        //method: 'POST',
-        //body: JSON.stringify(values),
-        //headers: {
-          //'Content-Type': 'application/json'
-       // }
-      //})
-      //.then((response) => {
-        //console.log(response.status);
-        //if(response.status === 200){
-          //toast.success('user Registered Succesfully');
-        //}
-        //else{
-          //toast.error('user Registration failed');
-        //}
-      //}).catch((err) =>{
-        //  console.log(err);
-      //});
+      fetch('http://localhost:5001/user/add', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+       }
+      })
+      .then((response) => {
+        console.log(response.status);
+        if(response.status === 200){
+          toast.success('user Registered Succesfully');
+        }
+        else{
+          toast.error('user Registration failed');
+        }
+      }).catch((err) =>{
+          console.log(err);
+      });
 
     },
     validationSchema: signupValidationSchema
@@ -113,7 +113,7 @@ const Signup = () => {
             </button>
           </div>
         </div>
-        <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2"onSubmit={signupForm.handleSubmit}>
+        <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2"onSignUp={signupForm.handleSubmit}>
           <div>
             <label className="block mb-2 text-sm text-white dark:text-gray-200">
               First Name
@@ -127,7 +127,7 @@ const Signup = () => {
               className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             />
             {signupForm.touched.name && (
-                          <small class="text-gray-500">{signupForm.errors.name}</small>
+                          <small class="text-red-300">{signupForm.errors.name}</small>
                         )}
           </div>
           <div>
@@ -147,6 +147,7 @@ const Signup = () => {
             </label>
             <input
               type="text"
+              id='pno'
               placeholder="XXX-XX-XXXX-XXX"
               className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -157,13 +158,14 @@ const Signup = () => {
             </label>
             <input
               type="email"
+              id='email'
               onChange={signupForm.handleChange}
               value={signupForm.values.email}
               placeholder="johnsnow@example.com"
               className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             />
             {signupForm.touched.email && (
-              <small class='text-gray-500'>{signupForm.errors.email}</small>
+              <small class='text-red-300'>{signupForm.errors.email}</small>
             )}
           </div>
           <div>
@@ -179,7 +181,7 @@ const Signup = () => {
               className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             />
             {signupForm.touched.password &&(
-              <small class='text-gray-500'>{signupForm.errors.password}</small>
+              <small class='text-red-300'>{signupForm.errors.password}</small>
             )}
           </div>
           <div>
@@ -188,14 +190,14 @@ const Signup = () => {
             </label>
             <input
               type="password"
-              id='cpass'
+              id="confirmPassword"
               onChange={signupForm.handleChange}
               value={signupForm.values.confirmPassword}
               placeholder="Enter your password"
               className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
             />
             {signupForm.touched.confirmPassword &&(
-              <small class='text-gray-500'>{signupForm.errors.confirmPassword}</small>
+              <small class='text-red-300'>{signupForm.errors.confirmPassword}</small>
             )}
           </div>
           <button className="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
