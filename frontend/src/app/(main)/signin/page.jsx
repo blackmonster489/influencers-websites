@@ -216,7 +216,7 @@ const Signup = () => {
               />
             </svg>
           </button>
-          <a href="/login"><h2 className='text-white  hover:underline'>Already have account?login</h2></a>
+          <a href="/login2"><h2 className='text-white  hover:underline'>Already have account?login</h2></a>
         </form>
       </div>
     </div>

@@ -1,4 +1,3 @@
-
 'use client';
 import React from 'react';
 import Link from 'next/link';
@@ -130,7 +129,7 @@ const Login = () => {
                   }
                 </div>
                 <div className="mt-8 md:flex md:items-center">
-                  <button  type="submit"className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg md:w-1/2 hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                  <button type='submit' className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg md:w-1/2 hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                     Log in
                   </button>
                   <a

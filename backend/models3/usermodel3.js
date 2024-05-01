@@ -8,6 +8,3 @@ const mySchema = new Schema({
 })
 
 module.exports =model('user',mySchema);
-
-
-
