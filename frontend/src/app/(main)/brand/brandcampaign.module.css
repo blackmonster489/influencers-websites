@@ -1,0 +1,29 @@
+.image{
+    background-image: url(/images/Home.png);
+    width: 100vw;
+    height: 50vh;
+}
+.margin{
+    margin-top: 50vh;
+}
+.sections{
+    padding-top: 15vh;
+}
+.sections1{
+    padding-left: 7vw;
+    padding-top: 15vh;
+}
+.btn{
+    width: 200px;
+    height: 50px;
+    color: blue;
+    border-radius: 22px;
+    border: 2px solid blue;
+    margin-left: 50vw;
+    margin-top: 80px;
+}
+.btn:hover{
+    color: black;
+    background-color: lightcoral;
+
+}

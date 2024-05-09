@@ -1,9 +1,12 @@
 const { model,Schema} = require('../connection');
 
 const mySchema = new Schema({
-
-    email :{type: String,unique: true},
+    name : { type:String,require: true},
+    email :{type: String},
     password : String,
+    followers:String,
+    socialLinks:String,
+    
     createdAt :{type:Date,default:Date.now}
 })
 

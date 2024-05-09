@@ -13,7 +13,7 @@ const loginValidationSchema = Yup.object().shape({
     .matches(/[0-9]/, 'Password must contain number')
 });
 
-const Login = () => {
+const BrandLogin = () => {
   const loginForm = useFormik({
     initialValues: {
       email: "",
@@ -22,7 +22,7 @@ const Login = () => {
     onSubmit: (values) => {
       console.log(values);
 
-      fetch('http://localhost:5001/user/add', {
+      fetch('http://localhost:5000/brand/authenticate', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
@@ -223,4 +223,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+export default BrandLogin;

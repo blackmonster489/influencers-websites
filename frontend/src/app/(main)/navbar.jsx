@@ -51,8 +51,8 @@ const Navbar = () => {
         <path d="m21.308 6.464c.993 0 .992-1.5 0-1.5h-5.87c-.993 0-.992 1.5 0 1.5z" />
       
     </a>
-    <a href="/signup"><button className={classes.btn1}>Join As Brand</button></a>
-    <a href="/signin"><button className={classes.btn2}>Join As Creator</button></a>
+    <a href="/brand-signup"><button className={classes.btn1}>Join As Brand</button></a>
+    <a href="/signup"><button className={classes.btn2}>Join As Creator</button></a>
 
 
   </div>

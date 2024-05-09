@@ -8,7 +8,7 @@ const About = () => {
   <div className="container px-6 py-10 mx-auto">
     <div className="text-center">
     <i>
-    <h1 className="text-2xl font-bold text-white capitalize lg:text-3xl dark:text-white">
+    <h1 className="text-2xl font-bold text-white capitalize lg:text-5xl dark:text-white">
         ABOUT US
       </h1>
     </i>
@@ -45,7 +45,7 @@ const About = () => {
           src="https://ideogram.ai/api/images/direct/ogRQ5GSqSte6zV8yu9kHWg.png" alt=""/>
         <div className="relative z-20 max-w-lg p-6 mx-auto -mt-20 bg-white rounded-md shadow dark:bg-gray-900">
           <a
-            href="#"
+            href="brand"
             className="font-semibold text-gray-800 hover:underline dark:text-white md:text-xl"
           >
             Explore The Campaigns Of Brands 

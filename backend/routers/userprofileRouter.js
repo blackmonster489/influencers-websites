@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Model = require('../models3/usermodel3')
+const Model = require('../models/userprofileModel')
 
 
 // router.get('/del', (req, res) => {
@@ -16,4 +16,15 @@ router.post('/add', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+router.get('/getall', (req, res) => {
+    Model.find()
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
+
 module.exports = router;

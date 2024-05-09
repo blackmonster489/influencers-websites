@@ -11,7 +11,7 @@ const Home = () => {
                <b>
                <h1>Find & Hire Perfect<br/> <div className={classes.text}>Influencer For</div>Your Brand</h1></b>
                 <p>Get perfect Influencer for your Brand with more less Time <br /> Get The Best Influencer</p>
-                <a href=""><button className={classes.btn}><b>Get Started</b></button></a>
+                <a href="/about"><button className={classes.btn}><b>Get Started</b></button></a>
               </div>
               <div className={classes.images}> 
               <img src="https://ideogram.ai/api/images/direct/nuCD837yQnCaK6ZUryuV8Q.jpg" className={classes.img1} alt="" />
@@ -23,7 +23,7 @@ const Home = () => {
            <div>
            <section className="bg-gray-800 dark:bg-gray-900">
   <div className="container px-6 py-10 mx-auto">
-    <h1 className="text-2xl font-semibold text-center text-white capitalize lg:text-3xl dark:text-white">
+    <h1 className="text-5xl font-bold text-center text-white capitalize lg:text-5xl dark:text-white">
       Find Your Perfect influencers
     </h1>
     <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
