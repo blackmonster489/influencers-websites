@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.use('/user', userRouter);
 app.use('/brand', brandRouter);
+app.use('/campaign', campaignRouter);
 
 app.get('/',(req , res)=> {
     res.send('respose from express')

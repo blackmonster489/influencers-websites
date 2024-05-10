@@ -59,7 +59,8 @@ const signupForm= () => {
   });
 
   return (
-    <div className='bg-gray-900' onSubmit={signupForm.handleSubmit}>
+    <form onSubmit={signupForm.handleSubmit}>
+    <div className='bg-gray-900'>
         <>
   {/* Card Section */}
   <div className="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 mx-auto">
@@ -418,6 +419,7 @@ const signupForm= () => {
 </>
 
     </div>
+    </form>
   )
 }
 
