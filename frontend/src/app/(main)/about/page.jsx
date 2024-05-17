@@ -27,7 +27,7 @@ const About = () => {
           src="https://ideogram.ai/api/images/direct/7ZZJUYIcSjK3uMYCjThguQ.jpg"alt=""/>
         <div className="relative z-20 max-w-lg p-6 mx-auto -mt-20 bg-white rounded-md shadow dark:bg-gray-900">
           <a
-            href="#"
+            href="/browse-influencer"
             className="font-semibold text-gray-800 hover:underline dark:text-white md:text-xl"
           >
             Explore The Influencers

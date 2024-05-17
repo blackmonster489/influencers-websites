@@ -10,31 +10,35 @@ const AddCampaign = () => {
   const AddCampaign = useFormik({
     initialValues: {
       headline: '',
-      startingdate:'',
-      enddate:'',
-      image:''
+      brandname:'',
+      slogan:'',
+      description:'',
+      startingdate: '',
+      enddate: '',
+      image: '',
+      email:''
     },
     onSubmit: (values) => {
       console.log(values);
-      
+
       fetch('http://localhost:5000/campaign/add', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
           'Content-Type': 'application/json'
-       }
+        }
       })
-      .then((response) => {
-        console.log(response.status);
-        if(response.status === 200){
-          toast.success('Add campaign successfully');
-        }
-        else{
-          toast.error('user Registration failed');
-        }
-      }).catch((err) =>{
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            toast.success('Add campaign successfully');
+          }
+          else {
+            toast.error('user Registration failed');
+          }
+        }).catch((err) => {
           console.log(err);
-      });
+        });
 
     },
 
@@ -69,7 +73,7 @@ const AddCampaign = () => {
 
                 </div>
               </div>
-              <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2"onSubmit={AddCampaign.handleSubmit}>
+              <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" onSubmit={AddCampaign.handleSubmit}>
                 <div>
                   <label className="block mb-2 text-sm text-yellow-200 dark:text-gray-200">
                     Headline
@@ -84,14 +88,71 @@ const AddCampaign = () => {
                   />
                 </div>
 
-                                               
+                <div>
+                  <label className="block mb-2 text-sm text-yellow-200 dark:text-gray-200">
+                    Brand Name
+                  </label>
+                  <input
+                    type="text"
+                    id='brandname'
+                    placeholder="Enter the headline of your brand campaign"
+                    onChange={AddCampaign.handleChange}
+                    value={AddCampaign.values.brandname}
+                    className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-sm text-yellow-200 dark:text-gray-200">
+                    Slogan
+                  </label>
+                  <input
+                    type="text"
+                    id='slogan'
+                    placeholder="Enter the headline of your brand campaign"
+                    onChange={AddCampaign.handleChange}
+                    value={AddCampaign.values.slogan}
+                    className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-sm text-yellow-200 dark:text-gray-200">
+                    Description
+                  </label>
+                  <input
+                    type="text"
+                    id='description'
+                    placeholder="Enter the headline of your brand campaign"
+                    onChange={AddCampaign.handleChange}
+                    value={AddCampaign.values.description}
+                    className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  />
+                </div>
+
+                <div>
+                  <label className="block mb-2 text-sm text-yellow-200 dark:text-gray-200">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id='email'
+                    placeholder="Enter the your email"
+                    onChange={AddCampaign.handleChange}
+                    value={AddCampaign.values.email}
+                    className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  />
+                </div>
+
+
+
 
                 <div>
                   <label className="block mb-2 text-sm text-yellow-200 dark:text-gray-200">
                     Starting Date
                   </label>
                   <input
-                    type="text"
+                    type="date"
                     id='startingdate'
                     placeholder="Enter starting date"
                     onChange={AddCampaign.handleChange}
@@ -105,7 +166,7 @@ const AddCampaign = () => {
                     End  Date
                   </label>
                   <input
-                    type="text"
+                    type="date"
                     id='enddate'
                     placeholder="Enter End date"
                     onChange={AddCampaign.handleChange}
@@ -114,8 +175,8 @@ const AddCampaign = () => {
                   />
                 </div>
 
-                
-                 <div>
+
+                <div>
                   <label
                     htmlFor="image"
                     className="block text-sm  text-yellow-200 dark:text-gray-300"
@@ -132,7 +193,7 @@ const AddCampaign = () => {
                 </div>
 
 
-                
+
                 <div className="flex overflow-hidden bg-blue-500 border divide-x rounded-lg rtl:flex-row-reverse dark:bg-gray-900 dark:border-gray-700 dark:divide-gray-700">
                   <button type='submit' className="flex items-center px-4 py-2 text-sm font-medium text-white transition-colors duration-200 sm:text-base sm:px-6 dark:hover:bg-blue-800 dark:text-gray-300 gap-x-3 hover:bg-blue-500">
                     <svg

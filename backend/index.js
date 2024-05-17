@@ -2,6 +2,9 @@ const express = require('express')
 const userRouter = require('./routers/userRouter');
 const brandRouter = require('./routers/brandRouter');
 const campaignRouter = require('./routers/campaignRouter');
+const enrollmentRouter = require('./routers/enrollmentRouter');
+const contactRouter = require('./routers/contactRouter');
+const userprofileRouter = require('./routers/userprofileRouter');
 
 const cors = require('cors');
 
@@ -17,6 +20,9 @@ app.use(express.json());
 app.use('/user', userRouter);
 app.use('/brand', brandRouter);
 app.use('/campaign', campaignRouter);
+app.use('/enrollment', enrollmentRouter);
+app.use('/userprofile', userprofileRouter);
+
 
 app.get('/',(req , res)=> {
     res.send('respose from express')

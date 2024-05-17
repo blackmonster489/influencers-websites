@@ -34,6 +34,11 @@ const Login = () => {
         console.log(response.status);
         if(response.status === 200){
           toast.success('user Registered Succesfully');
+          response.json()
+          .then((result) => {
+            console.log(result);
+            localStorage.setItem('influencer', JSON.stringify(result));
+          })
         }
         else{
           toast.error('user Registration failed');

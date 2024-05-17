@@ -6,8 +6,12 @@ const mySchema = new Schema({
     password : String,
     followers:String,
     socialLinks:String,
+    phoneNumber:String,
+    bio:String,
+    photo:String,
+    gender:String,
     
     createdAt :{type:Date,default:Date.now}
 })
 
-module.exports =model('user',mySchema);
+module.exports =model('userprofile',mySchema);
