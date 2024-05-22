@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import classes from "./browse.module.css";
+import userProfile from '../(main)/userProfile/page';
 
 const browseInfluencer = () => {
 
@@ -20,6 +21,10 @@ const browseInfluencer = () => {
     fetchInfluencer()
   }, [])
 
+
+
+
+
   const displayinfluencer = () => {
     return(
       <section className="px-4 py-24 mx-auto max-w-7xl">
@@ -36,7 +41,7 @@ const browseInfluencer = () => {
         <div>
           <a href="#">
             <img
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+              src={"http://localhost:5000/" + userprofile.photo}
               className="object-cover w-full h-56 mb-5 bg-center rounded"
               alt="Kutty"
               loading="lazy"
@@ -44,36 +49,36 @@ const browseInfluencer = () => {
           </a>
           <h2 className="mb-2 text-lg font-semibold text-gray-900">
 
-            <a href="#" className="text-gray-900 hover:text-purple-700">
+            <a href="#" className="text-gray-900 hover:text-purple-900">
              {info.name}
             </a>
           </h2>
 
-          <p className='mb-3 text-sm font-normal text-gray-700'>
+          <p className='mb-3 text-sm font-normal text-gray-900'>
            {info.gender}
           </p>
-          <h2>
+          <h2 className='text-blue-700 font-semibold'>
             Followers:
-            <p className="mb-3 text-sm font-normal text-gray-700">
+            <p className="mb-3 text-sm font-normal text-gray-900">
             {info.followers}
             </p>
           </h2>
-          <p className="mb-3 text-sm font-normal text-gray-500">
+          <p className="mb-3 text-sm font-normal text-gray-900">
 
             <a href="#" className="text-gray-900 hover:text-purple-700">
-              Links: {info.socialLinks} 
+              <h2 className='text-blue-700 font-bold'>Links:</h2> {info.socialLinks} 
             </a>
           </p>
-          <p className='mb-3 text-sm font-normal text-gray-700'>
+          <p className='mb-3 text-sm font-normal text-gray-900'>
             {info.phoneNumber}
           </p>
          
-          <p className=' text-ellipsis overflow-hidden mb-3 text-sm font-normal text-gray-700'>
+          <p className=' text-ellipsis overflow-hidden mb-3 text-sm font-normal text-gray-900'>
 
-           Bio:{info.bio}
+           <h2 className=' text-blue-700 font-bold'>Bio:</h2>{info.bio}
           </p>
          
-          < a href="/viewdetails"><button className='px-4 py-2 bg-blue-500 text-white rounded-md'>View details</button></a>
+          
 
         </div>
         

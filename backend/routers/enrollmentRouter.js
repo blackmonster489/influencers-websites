@@ -38,4 +38,14 @@ router.post('/check-enrollment', (req, res) => {
         });
 })
 
+router.get('/getbyinfluencer/:id', (req, res) => {
+    Model.find({ influencer: req.params.id }).populate('campaign')
+        .then((result) => {
+            res.status(200).json(result);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
+
 module.exports = router;
