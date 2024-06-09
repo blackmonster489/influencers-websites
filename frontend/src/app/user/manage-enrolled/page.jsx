@@ -104,31 +104,31 @@ const ManageEnrolled = () => {
 
           <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
             {
-              enrolledCampaigns.map(campaign => (
+              enrolledCampaigns.map(enrollment => (
 
             <tr>
               <td className="px-4 py-4 text-sm font-medium whitespace-nowrap align-top">
                 <div>
                   <h2 className="font-medium text-gray-800 dark:text-white ">
-                    {campaign.campaign.brandname}
+                    {enrollment.campaign.brandname}
                   </h2>
 
                 </div>
               </td>
               <td className="px-12 py-4 text-sm font-medium whitespace-nowrap align-top">
                 <div className="">
-                 {campaign.influencer.name}
+                 {enrollment.influencer.name}
                 </div>
               </td>
               <td className="px-12 py-4 text-sm font-medium whitespace-nowrap align-top">
                 <div className="">
-                 {campaign.influencer.email}
+                 {enrollment.influencer.email}
                 </div>
               </td>
               <td className="px-4 py-4 w-72 min-w-72 text-sm align-top ">
                 <div>
                   <h4 className="text-gray-700 dark:text-gray-200">
-                   {campaign.campaign.description}
+                   {enrollment.campaign.description}
                   </h4>
 
                 </div>
@@ -137,19 +137,19 @@ const ManageEnrolled = () => {
                 <div className="flex items-center">
 
                   <p className="">
-                   {new Date(campaign.campaign.startingdate).toDateString()}
+                   {new Date(enrollment.campaign.startingdate).toDateString()}
                   </p>
                 </div>
               </td>
               <td className="px-4 py-4 text-sm whitespace-nowrap align-top">
                 <div className="">
-                  <p> {new Date(campaign.campaign.enddate).toDateString()}</p>
+                  <p> {new Date(enrollment.campaign.enddate).toDateString()}</p>
                   <div className="" />
                 </div>
               </td>
               < td className="px-4 py-4 text-sm whitespace-nowrap align-top">
               
-              < a href="/brand/uploadproof"><button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 ">Upload Proof</button></a>
+              < a href={"/user/uploadproof/"+enrollment._id}><button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 ">Upload Proof</button></a>
             
       
 

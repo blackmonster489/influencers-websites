@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import classes from "./proof.module.css";
-import uploadproof from '../uploadproof/page';
+import uploadproof from '../../user/uploadproof/[id]/page';
 
 
 const browseproof = () => {
