@@ -27,4 +27,24 @@ router.get('/getall', (req, res) => {
         });
 })
 
+router.delete("/delete/:id", (req, res) => {
+    Model.findByIdAndDelete(req.params.id)
+    .then((result) => {
+        res.status(200).json(result);
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
+});
+
+router.get("/getbybrand/:id", (req, res) => {
+    Model.find({brand : req.params.id})
+    .then((result) => {
+        res.status(200).json(result);
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
+});
+
+
+
 module.exports = router;

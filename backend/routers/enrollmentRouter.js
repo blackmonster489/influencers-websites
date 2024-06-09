@@ -39,7 +39,7 @@ router.post('/check-enrollment', (req, res) => {
 })
 
 router.get('/getbyinfluencer/:id', (req, res) => {
-    Model.find({ influencer: req.params.id }).populate('campaign')
+    Model.find({ influencer: req.params.id }).populate('campaign').populate('influencer')
         .then((result) => {
             res.status(200).json(result);
         }).catch((err) => {
