@@ -15,15 +15,10 @@ const browseInfluencer = () => {
     console.log(data);
     setInfluencerList(data)
   }
-
   useEffect(() => {
   
     fetchInfluencer()
   }, [])
-
-
-
-
 
   const displayinfluencer = () => {
     return(
@@ -41,7 +36,7 @@ const browseInfluencer = () => {
         <div>
           <a href="#">
             <img
-              src={"http://localhost:5000/" + userprofile.photo}
+              src={"http://localhost:5000/" + info.photo}
               className="object-cover w-full h-56 mb-5 bg-center rounded"
               alt="Kutty"
               loading="lazy"
@@ -90,8 +85,11 @@ const browseInfluencer = () => {
 
 
     </section>
+    
     )
   }
+  <a href="/brand/managebrands"><button className={classes.btn2}>Manage Campaigns</button></a>  
+
 
 
   return (
@@ -122,7 +120,8 @@ const browseInfluencer = () => {
             <path d="m21.308 6.464c.993 0 .992-1.5 0-1.5h-5.87c-.993 0-.992 1.5 0 1.5z" />
 
 
-            <a href="/userProfile"><button className={classes.btn1}>Join As Creator</button></a>
+            <a href="/userProfile"><button className={classes.btn1}>Add Your Profile</button></a>
+            <a href="/brand/proof"><button className={classes.btn2}>Uploaded Proofs</button></a>
 
 
 
@@ -138,6 +137,7 @@ const browseInfluencer = () => {
     displayinfluencer()
   }
     
+    < a href="userProfile"><button className={classes.btn}><b>Add Your Profile</b></button></a>
 
     </div>
   )

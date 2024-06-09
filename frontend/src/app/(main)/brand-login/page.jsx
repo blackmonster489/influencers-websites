@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useFormik } from "formik";
 import toast from 'react-hot-toast';
 import * as Yup from 'Yup';
+import { useRouter } from 'next/navigation';
 
 const loginValidationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid Email').required('Email is Required'),
@@ -14,6 +15,9 @@ const loginValidationSchema = Yup.object().shape({
 });
 
 const BrandLogin = () => {
+
+  const router = useRouter();
+
   const loginForm = useFormik({
     initialValues: {
       email: "",
@@ -27,19 +31,25 @@ const BrandLogin = () => {
         body: JSON.stringify(values),
         headers: {
           'Content-Type': 'application/json'
-       }
+        }
       })
-      .then((response) => {
-        console.log(response.status);
-        if(response.status === 200){
-          toast.success('user Registered Succesfully');
-        }
-        else{
-          toast.error('user Registration failed');
-        }
-      }).catch((err) =>{
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            toast.success('Brand Loggedin Succesfully');
+            response.json()
+              .then((result) => {
+                console.log(result);
+                localStorage.setItem('brand', JSON.stringify(result));
+                router.push('/brand/addcampaign');
+              })
+          }
+          else {
+            toast.error('Brand Login failed');
+          }
+        }).catch((err) => {
           console.log(err);
-      });
+        });
 
     },
     validationSchema:
@@ -216,6 +226,9 @@ const BrandLogin = () => {
               </a>
             </div>
           </div>
+        </div>
+        <div className='grid place-items-center'>
+             < a href="/"> <h3 className='text-yellow-200 uppercase mb-16 font-bold'>Back</h3></a>    
         </div>
       </section>
 

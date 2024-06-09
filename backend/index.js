@@ -5,7 +5,8 @@ const campaignRouter = require('./routers/campaignRouter');
 const enrollmentRouter = require('./routers/enrollmentRouter');
 const contactRouter = require('./routers/contactRouter');
 const userprofileRouter = require('./routers/userprofileRouter');
-const managebrandRouter = require('./routers/managebrandRouter');
+const uploadproofRouter = require('./routers/uploadproofRouter');
+
 const utilRouter = require('./routers/util');
 
 const cors = require('cors');
@@ -24,7 +25,8 @@ app.use('/brand', brandRouter);
 app.use('/campaign', campaignRouter);
 app.use('/enrollment', enrollmentRouter);
 app.use('/userprofile', userprofileRouter);
-app.use('/managebrand', managebrandRouter);
+app.use('/uploadproof', uploadproofRouter);
+
 app.use('/util', utilRouter);
 
 app.use(express.static('./static/uploads'));

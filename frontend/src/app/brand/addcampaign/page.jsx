@@ -1,22 +1,28 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link';
 import { useFormik } from "formik";
 import toast from 'react-hot-toast';
 import * as Yup from 'Yup';
+import classes from "./addcampaign.module.css";
 
 
 const AddCampaign = () => {
-  const AddCampaign = useFormik({
+
+
+  const [currentBrand, setCurrentBrand] = useState(JSON.parse(localStorage.getItem('brand')));
+
+  const campaignForm = useFormik({
     initialValues: {
+      brand: currentBrand._id,
       headline: '',
-      brandname:'',
-      slogan:'',
-      description:'',
+      brandname: '',
+      slogan: '',
+      description: '',
       startingdate: '',
       enddate: '',
       image: '',
-      email:''
+      email: ''
     },
     onSubmit: (values) => {
       console.log(values);
@@ -54,7 +60,7 @@ const AddCampaign = () => {
     }).then((res) => {
       if (res.status === 200) {
         console.log("file uploaded");
-        AddCampaign.setFieldValue('image', file.name);
+        campaignForm.setFieldValue('image', file.name);
       }
     });
   };
@@ -88,7 +94,7 @@ const AddCampaign = () => {
 
                 </div>
               </div>
-              <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" onSubmit={AddCampaign.handleSubmit}>
+              <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2" onSubmit={campaignForm.handleSubmit}>
                 <div>
                   <label className="block mb-2 text-sm text-yellow-200 dark:text-gray-200">
                     Headline
@@ -97,8 +103,8 @@ const AddCampaign = () => {
                     type="text"
                     id='headline'
                     placeholder="Enter the headline of your brand campaign"
-                    onChange={AddCampaign.handleChange}
-                    value={AddCampaign.values.headline}
+                    onChange={campaignForm.handleChange}
+                    value={campaignForm.values.headline}
                     className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
@@ -111,8 +117,8 @@ const AddCampaign = () => {
                     type="text"
                     id='brandname'
                     placeholder="Enter the headline of your brand campaign"
-                    onChange={AddCampaign.handleChange}
-                    value={AddCampaign.values.brandname}
+                    onChange={campaignForm.handleChange}
+                    value={campaignForm.values.brandname}
                     className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
@@ -125,8 +131,8 @@ const AddCampaign = () => {
                     type="text"
                     id='slogan'
                     placeholder="Enter the headline of your brand campaign"
-                    onChange={AddCampaign.handleChange}
-                    value={AddCampaign.values.slogan}
+                    onChange={campaignForm.handleChange}
+                    value={campaignForm.values.slogan}
                     className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
@@ -139,8 +145,8 @@ const AddCampaign = () => {
                     type="text"
                     id='description'
                     placeholder="Enter the headline of your brand campaign"
-                    onChange={AddCampaign.handleChange}
-                    value={AddCampaign.values.description}
+                    onChange={campaignForm.handleChange}
+                    value={campaignForm.values.description}
                     className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
@@ -153,8 +159,8 @@ const AddCampaign = () => {
                     type="email"
                     id='email'
                     placeholder="Enter the your email"
-                    onChange={AddCampaign.handleChange}
-                    value={AddCampaign.values.email}
+                    onChange={campaignForm.handleChange}
+                    value={campaignForm.values.email}
                     className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
@@ -170,8 +176,8 @@ const AddCampaign = () => {
                     type="date"
                     id='startingdate'
                     placeholder="Enter starting date"
-                    onChange={AddCampaign.handleChange}
-                    value={AddCampaign.values.startingdate}
+                    onChange={campaignForm.handleChange}
+                    value={campaignForm.values.startingdate}
                     className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
@@ -184,8 +190,8 @@ const AddCampaign = () => {
                     type="date"
                     id='enddate'
                     placeholder="Enter End date"
-                    onChange={AddCampaign.handleChange}
-                    value={AddCampaign.values.enddate}
+                    onChange={campaignForm.handleChange}
+                    value={campaignForm.values.enddate}
                     className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
@@ -223,13 +229,22 @@ const AddCampaign = () => {
                         d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
                       />
                     </svg>
-                    <span>Upload</span>
+                  <span>Upload</span>
                   </button>
                 </div>
+
               </form>
             </div>
+            <div className={classes.button}>
+              < a href="/browse-campaign"> <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+              <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                Back
+              </span>
+              </button></a>
+</div>
           </div>
         </div>
+        
       </section>
 
     </div>

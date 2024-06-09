@@ -223,6 +223,9 @@ const Login = () => {
             </div>
           </div>
         </div>
+        <div className='grid place-items-center'>
+          < a href="/"><h3 className='text-yellow-200 uppercase   font-bold mb-16'>Back</h3></a>
+        </div>
       </section>
 
     </div>

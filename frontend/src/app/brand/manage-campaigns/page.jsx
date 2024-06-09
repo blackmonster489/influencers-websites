@@ -3,19 +3,19 @@ import React, { useEffect, useState } from 'react'
 
 const ManageEnrolled = () => {
 
-  const [currentInluencer, setCurrentInluencer] = useState(JSON.parse(localStorage.getItem('influencer')));
+  const [currentBrand, setCurrentBrand] = useState(JSON.parse(localStorage.getItem('brand')));
 
-  const [enrolledCampaigns, setEnrolledCampaigns] = useState([]);
+  const [campaignList, setCampaignList] = useState([]);
 
-  const fetchEnrolledCampaigns = () => {
-    fetch('http://localhost:5000/enrollment/getbyinfluencer/' + currentInluencer._id)
+  const fetchCampaigns = () => {
+    fetch('http://localhost:5000/campaign/getbybrand/' + currentBrand._id)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         console.log(data);
-        setEnrolledCampaigns(data);
-       
+        setCampaignList(data);
+
       })
       .catch((err) => {
         console.log(err);
@@ -23,10 +23,10 @@ const ManageEnrolled = () => {
   }
 
   useEffect(() => {
-    fetchEnrolledCampaigns();
+    fetchCampaigns();
   }, [])
 
-  const showinfluencer = () => {
+  const showCampaigns = () => {
     return (
       <table className="w-full divide-y divide-gray-200 dark:divide-gray-700">
         <thead className="bg-gray-50 dark:bg-gray-800">
@@ -68,14 +68,7 @@ const ManageEnrolled = () => {
               scope="col"
               className="px-12 py-3.5  font-bold text-left rtl:text-right text-gray-500 dark:text-gray-400"
             >
-             Influencer's Name
-            </th>
-
-            <th
-              scope="col"
-              className="px-12 py-3.5  font-bold text-left rtl:text-right text-gray-500 dark:text-gray-400"
-            >
-             Influencer's email
+              Influencer
             </th>
             <th
               scope="col"
@@ -102,63 +95,55 @@ const ManageEnrolled = () => {
         </thead>
 
 
-          <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-            {
-              enrolledCampaigns.map(campaign => (
+        <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+          {
+            campaignList.map(campaign => (
 
-            <tr>
-              <td className="px-4 py-4 text-sm font-medium whitespace-nowrap align-top">
-                <div>
-                  <h2 className="font-medium text-gray-800 dark:text-white ">
-                    {campaign.campaign.brandname}
-                  </h2>
+              <tr>
+                <td className="px-4 py-4 text-sm font-medium whitespace-nowrap align-top">
+                  <div>
+                    <h2 className="font-medium text-gray-800 dark:text-white ">
+                      {campaign.headline}
+                    </h2>
 
-                </div>
-              </td>
-              <td className="px-12 py-4 text-sm font-medium whitespace-nowrap align-top">
-                <div className="">
-                 {campaign.influencer.name}
-                </div>
-              </td>
-              <td className="px-12 py-4 text-sm font-medium whitespace-nowrap align-top">
-                <div className="">
-                 {campaign.influencer.email}
-                </div>
-              </td>
-              <td className="px-4 py-4 w-72 min-w-72 text-sm align-top ">
-                <div>
-                  <h4 className="text-gray-700 dark:text-gray-200">
-                   {campaign.campaign.description}
-                  </h4>
+                  </div>
+                </td>
+                <td className="px-12 py-4 text-sm font-medium whitespace-nowrap align-top">
+                  <div className="">
+                    {campaign.description}
+                  </div>
+                </td>
+                <td className="px-4 py-4 w-72 min-w-72 text-sm align-top ">
+                  <div>
+                    <h4 className="text-gray-700 dark:text-gray-200">
+                      {/* {campaign.campaign.description} */}
+                    </h4>
 
-                </div>
-              </td>
-              <td className="px-4 py-4 text-sm whitespace-nowrap align-top">
-                <div className="flex items-center">
+                  </div>
+                </td>
+                <td className="px-4 py-4 text-sm whitespace-nowrap align-top">
+                  <div className="flex items-center">
 
-                  <p className="">
-                   {new Date(campaign.campaign.startingdate).toDateString()}
-                  </p>
-                </div>
-              </td>
-              <td className="px-4 py-4 text-sm whitespace-nowrap align-top">
-                <div className="">
-                  <p> {new Date(campaign.campaign.enddate).toDateString()}</p>
-                  <div className="" />
-                </div>
-              </td>
-              < td className="px-4 py-4 text-sm whitespace-nowrap align-top">
-              
-              < a href="/brand/uploadproof"><button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 ">Upload Proof</button></a>
-            
-      
+                    <p className="">
+                      {new Date(campaign.startingdate).toDateString()}
+                    </p>
+                  </div>
+                </td>
+                <td className="px-4 py-4 text-sm whitespace-nowrap align-top">
+                  <div className="">
+                    <p> {new Date(campaign.enddate).toDateString()}</p>
+                    <div className="" />
+                  </div>
+                </td>
+                < td className="px-4 py-4 text-sm whitespace-nowrap align-top">
 
-              </td>
-            </tr>
-              ))
-            }
+                  <a href="/brand/uploadproof"><button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 ">Upload Proof</button></a>
+                </td>
+              </tr>
+            ))
+          }
 
-          </tbody>
+        </tbody>
 
 
       </table>
@@ -189,7 +174,7 @@ const ManageEnrolled = () => {
 
 
             {
-              showinfluencer()
+              showCampaigns()
             }
 
           </div>

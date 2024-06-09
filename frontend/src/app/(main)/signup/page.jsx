@@ -26,8 +26,7 @@ const Signup = () => {
       email: '',
       password: '',
       confirmPassword: '',
-      followers:'',
-      socialLinks:''
+      
     },
     onSubmit: (values) => {
       console.log(values);
@@ -170,31 +169,9 @@ const Signup = () => {
               <small className='text-red-300'>{signupForm.errors.confirmPassword}</small>
             )}
           </div>
-          <div>
-            <label className="block mb-2 text-sm text-white dark:text-gray-200">
-              Followers
-            </label>
-            <input type="text"
-            id='followers'
-            onChange={signupForm.handleChange}
-            value={signupForm.values.followers}
-            placeholder='Enter your followers'
-            className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
- />
-          </div>
+          
 
-          <div>
-            <label className="block mb-2 text-sm text-white dark:text-gray-200">
-              Social Links
-            </label>
-            <input type="text"
-              id='socialLinks'
-              onChange={signupForm.handleChange}
-              value={signupForm.values.socialLinks}
-              placeholder='Enter your social liks'
-              className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
- />
-          </div>
+          
 
           <button type="submit" className="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
             <span>Sign Up </span>

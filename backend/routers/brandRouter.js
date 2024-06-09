@@ -19,9 +19,13 @@ router.post('/add', (req, res) => {
 
 router.post('/authenticate', (req, res) => {
     console.log(req.body);
-Model.findOne(req.body)
+    Model.findOne(req.body)
         .then((result) => {
-            res.status(200).json(result);
+            if(result){
+                res.status(200).json(result);
+            }else{
+                res.status(401).json({message : 'login failed'})
+            }
         }).catch((err) => {
             console.log(err);
             res.status(500).json(err);

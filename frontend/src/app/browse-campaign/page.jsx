@@ -100,6 +100,7 @@ const BrowseCampaign = () => {
           <h2 className="mt-5 text-2xl font-semibold text-blue-800 uppercase dark:text-white">
             {campaign.brandname}
           </h2>
+          
           <p className=' mt-5 font-bold text-red-700 uppercase'>
             {campaign.slogan}          </p>
           <p className='mt-5 font-bold text-black-900 captalize'>
@@ -110,7 +111,10 @@ const BrowseCampaign = () => {
           <p className='text-blue-700 mt-5'>
             {campaign.email}          </p>
 
-          <button className='px-4 py-2 bg-blue-500 text-white rounded-md' onClick={() => handleEnrollment(campaign._id)}>Enroll</button>
+
+          <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 " onClick={() => handleEnrollment(campaign._id)}>Enroll</button>
+
+
         </div>
         <div className="mt-4 lg:w-1/3 lg:mt-0">
           <img
@@ -146,9 +150,10 @@ const BrowseCampaign = () => {
             <path d="m21.308 6.464c.993 0 .992-1.5 0-1.5h-5.87c-.993 0-.992 1.5 0 1.5z" />
 
 
-            <a href="/brandProfile"><button className={classes.btn1}>Join As Brand</button></a>
-            <a href="/brand/addcampaign"><button className={classes.btn2}>Add Campaigns</button></a>
-            <a href="/brand/managebrands"><button className={classes.btn2}>Manage Campaigns</button></a>  
+            <a href="/brand/managebrand"><button className={classes.btn1}>Manage Campaigns</button></a>
+            <a href="/brand/proof"><button className={classes.btn2}>Uploaded Proofs</button></a>
+            
+            
 
 
 
@@ -159,6 +164,10 @@ const BrowseCampaign = () => {
 
       </div>
       <div className={classes.image}>
+      </div>
+      <div className='grid place-items-center mt-16'>
+      <a  href="user/manage-enrolled"><button type="button" class="text-white px-4 py-4  bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">View your applied campaigns</button>
+      </a>
       </div>
 
       <section className="bg-white dark:bg-gray-900">
@@ -190,8 +199,9 @@ const BrowseCampaign = () => {
 
 
 
-
+      < div className='grid place-items-center'> 
       < a href="/brand/addcampaign"><button className={classes.btn}><b>Add Campaigns</b></button></a>
+      </div>
 
 
 

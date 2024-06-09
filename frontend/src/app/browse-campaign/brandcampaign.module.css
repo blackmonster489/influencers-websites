@@ -20,8 +20,9 @@
     color: blue;
     border-radius: 22px;
     border: 2px solid blue;
-    margin-left: 50vw;
-    margin-top: 80px;
+    justify-items: center;
+    /*margin-left: 50vw;
+    margin-top: 80px;*/
 }
 .btn:hover{
     color: black;
@@ -49,7 +50,7 @@
     background-color: green;
     border: 2px solid white;
     height: 35px;
-    width: 10vw;
+    width: 15vw;
 }
 .btn2{
     color:white;
